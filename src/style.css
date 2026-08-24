@@ -1283,23 +1283,20 @@ body {
 }
 
 .creator-avatar {
-  display: grid;
-  place-items: center;
   flex: 0 0 42px;
   width: 42px;
   height: 42px;
   border: 1px solid var(--accent-gold);
   border-radius: 50%;
-  color: var(--accent-gold);
-  font-family: var(--font-serif);
-  font-size: 0.78rem;
-  font-weight: 700;
+  object-fit: cover;
+  object-position: center;
   box-shadow: 0 0 18px var(--accent-glow);
 }
 
 .creator-copy {
   display: flex;
   flex-direction: column;
+  gap: 0.2rem;
   min-width: 0;
 }
 
@@ -1321,7 +1318,8 @@ body {
 }
 
 .creator-links { margin-left: auto; }
-.creator-links a { color: var(--accent-gold); font-size: 0.8rem; text-decoration: none; }
+.creator-links { display: flex; flex-direction: column; gap: 0.35rem; }
+.creator-links a { color: var(--accent-gold); font-size: 0.8rem; text-decoration: none; white-space: nowrap; }
 .creator-links svg { width: 13px; vertical-align: middle; }
 
 /* ==========================================================================
