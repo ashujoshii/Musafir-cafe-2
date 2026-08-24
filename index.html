@@ -503,7 +503,7 @@
         <h2>Reserve A Peaceful Corner</h2>
         <p>Planning a work session, a romantic evening, or a reading session?</p>
 
-        <form class="booking-form" action="https://api.web3forms.com/submit" method="POST">
+        <form class="booking-form" action="https://api.web3forms.com/submit" method="POST" id="bookingForm">
           <input type="hidden" name="access_key" value="cd1dfa47-d7c9-42a1-8c23-1bcd6c83f406" />
           <div class="form-grid">
             <div class="input-field glass">
@@ -531,6 +531,7 @@
             <span>Confirm Booking at मुसाफ़िर Cafe</span>
             <i data-lucide="check"></i>
           </button>
+          <p class="form-status" id="formStatus" aria-live="polite"></p>
         </form>
       </div>
     </div>
