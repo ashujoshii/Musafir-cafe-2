@@ -195,11 +195,11 @@ body {
 
 .brand-logo-image {
   display: block;
-  width: 74px;
-  height: 74px;
-  object-fit: cover;
+  width: 214px;
+  height: auto;
+  aspect-ratio: 400 / 120;
+  object-fit: contain;
   object-position: center;
-  border-radius: 50%;
 }
 
 .hindi-logo-title {
@@ -1018,11 +1018,11 @@ body {
 
 .footer-logo-image {
   display: block;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+  width: 280px;
+  height: auto;
+  aspect-ratio: 400 / 120;
+  object-fit: contain;
   object-position: center;
-  border-radius: 50%;
   margin-bottom: 1rem;
 }
 
@@ -1117,8 +1117,7 @@ body {
   }
 
   .brand-logo-image {
-    width: 58px;
-    height: 58px;
+    width: 148px;
   }
 
   .hindi-logo-title {

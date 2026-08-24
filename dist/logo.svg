@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="musafirGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    <linearGradient id="steamGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FEF3C7" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(20, 15)">
+    <circle cx="45" cy="45" r="42" fill="none" stroke="url(#musafirGradient)" stroke-width="2" stroke-dasharray="4 3" opacity="0.6"/>
+    <path d="M 25 38 C 25 58, 65 58, 65 38 Z" fill="none" stroke="#F3F4F6" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 65 42 C 73 42, 73 52, 65 52" fill="none" stroke="#F3F4F6" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 33 46 L 43 36 L 49 42 L 53 38 L 59 46" fill="none" stroke="url(#musafirGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 45 16 L 47 24 L 55 26 L 47 28 L 45 36 L 43 28 L 35 26 L 43 24 Z" fill="url(#steamGradient)"/>
+    <line x1="22" y1="64" x2="68" y2="64" stroke="#9CA3AF" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(120, 0)">
+    <text x="0" y="58" font-family="Cinzel, Playfair Display, serif" font-size="34" font-weight="700" fill="#FFFFFF" letter-spacing="2">MUSAFIR</text>
+    <text x="2" y="84" font-family="Plus Jakarta Sans, Inter, sans-serif" font-size="13" font-weight="500" fill="#F59E0B" letter-spacing="6">CAFÉ &amp; ROASTERY • मुसाफ़िर</text>
+  </g>
+</svg>
