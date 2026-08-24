@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>मुसाफ़िर Cafe | A Cinematic Haven for Wanderers</title>
+
+  <!-- Google Fonts: Devanagari + Modern Serif & Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  
+  <script type="module" crossorigin src="/Musafir-cafe-2/assets/index-C3aQHqIk.js"></script>
+  <link rel="stylesheet" crossorigin href="/Musafir-cafe-2/assets/index-B7U8JZAT.css">
+</head>
+<body>
+
+  <!-- WebGL 3D Interactive Background Canvas -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Dynamic Cursor Spotlight Follower -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Ambient Lighting Gradients -->
+  <div class="ambient-glow orb-1"></div>
+  <div class="ambient-glow orb-2"></div>
+
+  <!-- Sound Engine HUD Floating Widget -->
+  <div class="audio-widget glass" id="audioWidget">
+    <audio id="cafeAudio" src="/cafe-ambience.mp3" loop preload="auto"></audio>
+    <button id="soundToggleBtn" class="sound-toggle-btn" aria-label="Toggle Cozy Cafe Audio">
+      <span id="soundIconWrapper">☕</span>
+      <span class="audio-label">मुसाफ़िर Radio</span>
+    </button>
+    <div class="equalizer-bars" id="eqBars">
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar glass">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <span class="logo-icon">☕</span>
+        <div class="brand-text">
+          <span class="hindi-logo-title">मुसाफ़िर <span class="english-cafe">Cafe</span></span>
+          <span class="sub-name">STORIES • ROASTS • ROADS</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#hero">Origin</a></li>
+        <li><a href="#about-story">Our Story</a></li>
+        <li><a href="#menu-explorer">Craft Menu</a></li>
+        <li><a href="#ambience">Atmosphere</a></li>
+        <li><a href="#reserve">Reservations</a></li>
+      </ul>
+
+      <a href="#reserve" class="btn btn-reserve glass">Reserve A Nook</a>
+    </div>
+  </nav>
+
+  <!-- Main Hero Section -->
+  <header id="hero" class="hero-section">
+    <div class="hero-bg-overlay" style="background-image: linear-gradient(180deg, rgba(7, 8, 11, 0.75) 0%, rgba(7, 8, 11, 0.92) 100%), url('/Musafir-cafe-2/hero-bg.jpg');"></div>
+
+    <div class="hero-content">
+      <div class="badge-pill glass">
+        <span class="pulse-beacon"></span> Chapter One: The Wanderer’s Rest
+      </div>
+
+      <h1 class="hero-title">
+        <span class="hindi-hero-text">मुसाफ़िर</span> <span class="english-hero-text">Cafe</span>
+        <br />
+        <span class="gradient-text hero-tagline">Where Every Journey Finds Its Cup.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        कुछ रास्ते मंज़िल से खूबसूरत होते हैं। Brewing warmth and untold stories since 2024. Inspired by late-night highway travels, mountain mists, old diary pages, and artisanal wood-fire roasts.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#menu-explorer" class="btn btn-glow">Explore All Menus <i data-lucide="sparkles"></i></a>
+        <a href="#about-story" class="btn btn-outline">Our Story <i data-lucide="compass"></i></a>
+      </div>
+
+      <div class="hero-stats glass">
+        <div class="stat-box">
+          <h3>100%</h3>
+          <p>Single Origin Beans</p>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-box">
+          <h3>850+</h3>
+          <p>Travel Journals & Books</p>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-box">
+          <h3>Live</h3>
+          <p>Acoustic Friday Nights</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D Interactive Hero Visual Showcase Card -->
+    <div class="hero-visual" data-tilt data-tilt-max="14" data-tilt-speed="400" data-tilt-perspective="1000">
+      <div class="glass-feature-card glass">
+        <div class="card-img-wrap">
+          <img src="/Musafir-cafe-2/hero-bg.jpg" alt="Musafir Cafe Aesthetic" />
+          <div class="badge-accent">Signature Blend</div>
+        </div>
+
+        <div class="card-details">
+          <h3>सफ़र और सुकून का ठिकाना <br> — Brewing since 1924</h3>
+        
+          </div>
+        </div>
+
+        <div class="floating-badge badge-top glass" data-tilt data-tilt-max="20">
+          <i data-lucide="music" class="gold-icon"></i>
+          <div>
+            <strong>Now Playing</strong>
+            <span>Indie Acoustic Strings</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dedicated About Musafir Cafe Section -->
+  <section id="about-story" class="section about-section">
+    <div class="container">
+      <div class="grid-2">
+        <div class="about-image-wrapper" data-tilt data-tilt-max="8">
+          <div class="about-img-box glass">
+            <img src="/Musafir-cafe-2/story-bg.jpg" alt="About Musafir Cafe Story & Book" />
+            <div class="floating-quote glass">
+              <p>"हम सब ज़िंदगी के सफर में मुसाफ़िर ही तो हैं..."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text-content">
+          <span class="eyebrow">The Story & Philosophy</span>
+          <h2 class="section-heading-left">Born On The Road, Built For <span class="gradient-text">Dreamers</span></h2>
+          
+          <p class="about-para">
+            <strong>मुसाफ़िर Cafe</strong> is born from endless highway drives, chai stalls on misty hill tops, and stories exchanged with strangers under starlit skies.
+          </p>
+          <p class="about-para">
+            Every wooden corner in our cafe carries a diary for you to write your unsaid thoughts, an acoustic guitar for quiet melodies, and freshly pulled roasts that warm your spirit.
+          </p>
+
+          <div class="about-pillars">
+            <div class="pillar-item glass">
+              <i data-lucide="coffee" class="gold-icon"></i>
+              <div>
+                <h4>Artisanal Roasts</h4>
+                <p>Curated Arabica from Indian high estates.</p>
+              </div>
+            </div>
+            <div class="pillar-item glass">
+              <i data-lucide="book-open" class="gold-icon"></i>
+              <div>
+                <h4>Travelers' Diaries</h4>
+                <p>Open community journals on every table.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Categorized Menu Section -->
+  <section id="menu-explorer" class="section menu-section">
+    <div class="container">
+      <div class="section-heading text-center">
+        <span class="eyebrow">The Craft Kitchen</span>
+        <h2>Curated Brews & <span class="gradient-text">Gourmet Bites</span></h2>
+        <p>Switch between categories below to explore our iced infusions, hot artisanal roasts, mountain teas, and bakery delights.</p>
+      </div>
+
+      <!-- Menu Category Filter Tabs -->
+      <div class="menu-tabs-wrapper">
+        <div class="menu-tabs glass">
+          <button class="tab-btn active" data-category="cold-coffee">
+            <i data-lucide="snowflake"></i>
+            <span>Cold & Iced Brews</span>
+          </button>
+          <button class="tab-btn" data-category="hot-coffee">
+            <i data-lucide="coffee"></i>
+            <span>Hot Artisanal Roasts</span>
+          </button>
+          <button class="tab-btn" data-category="tea-tonics">
+            <i data-lucide="leaf"></i>
+            <span>Mountain Teas & Tonics</span>
+          </button>
+          <button class="tab-btn" data-category="bakery-bites">
+            <i data-lucide="croissant"></i>
+            <span>Bakes & Deli Bites</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Category 1: Cold & Iced Brews -->
+      <div class="menu-category-panel active" id="cold-coffee">
+        <div class="category-hero-card glass" data-tilt data-tilt-max="8">
+          <div class="cat-hero-text">
+            <span class="cat-pill">Slow Cold Steeped</span>
+            <h3>Iced Botanicals & Cold Brews</h3>
+            <p>Slow-dripped over 16-24 hours using chilled mountain spring water to produce low-acidity, naturally sweet elixirs.</p>
+          </div>
+          <div class="cat-hero-floating-visual">
+            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80" class="floating-mug-3d" alt="Cold Brew Glass" />
+          </div>
+        </div>
+
+        <div class="menu-grid">
+          <div class="menu-item glass" data-tilt data-tilt-max="10">
+            <div class="menu-img-wrap">
+              <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80" alt="Iced Hazelnut Latte" />
+            </div>
+            <div class="menu-info">
+              <div class="tag-row"><span>Bestseller</span></div>
+              <h4>मुसाफ़िर Iced Hazelnut Drip</h4>
+              <p>Espresso double-shot shaken with roasted hazelnut syrup & chilled oat milk.</p>
+              <div class="menu-bottom">
+                <span class="price">₹260</span>
+                <button class="add-btn"><i data-lucide="plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item glass" data-tilt data-tilt-max="10">
+            <div class="menu-img-wrap">
+              <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=80" alt="Cold Tonic" />
+            </div>
+            <div class="menu-info">
+              <div class="tag-row"><span>Sparkling</span></div>
+              <h4>Espresso Citrus Tonic</h4>
+              <p>Crisp tonic water paired with a layer of single-origin espresso and candied orange peel.</p>
+              <div class="menu-bottom">
+                <span class="price">₹275</span>
+                <button class="add-btn"><i data-lucide="plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item glass" data-tilt data-tilt-max="10">
+            <div class="menu-img-wrap">
+              <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80" alt="Caramel Frappe" />
+            </div>
+            <div class="menu-info">
+              <div class="tag-row"><span>Rich</span></div>
+              <h4>Salted Caramel Cloud Frappé</h4>
+              <p>Blended cold roast with handmade Himalayan salt caramel & whipped mascarpone foam.</p>
+              <div class="menu-bottom">
+                <span class="price">₹290</span>
+                <button class="add-btn"><i data-lucide="plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 2: Hot Artisanal Roasts -->
+      <div class="menu-category-panel" id="hot-coffee">
+        <div class="category-hero-card glass" data-tilt data-tilt-max="8">
+          <div class="cat-hero-text">
+            <span class="cat-pill">Freshly Roasted Arabica</span>
+            <h3>Hot Pour-Overs & Steamed Roasts</h3>
+            <p>From balanced flat whites to intense Aeropress shots, crafted with locally roasted high-altitude estates.</p>
+          </div>
+          <div class="cat-hero-floating-visual">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80" class="floating-mug-3d hot-steam-mug" alt="Steaming Cappuccino Mug" />
+          </div>
+        </div>
+
+        <div class="menu-grid">
+          <div class="menu-item glass" data-tilt data-tilt-max="10">
+            <div class="menu-img-wrap">
+              <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80" alt="Espresso" />
+            </div>
+            <div class="menu-info">
+              <div class="tag-row"><span>Dark Roast</span></div>
+              <h4>Pahar Ganj Smoked Cortado</h4>
+              <p>Equal parts rich espresso and textured whole milk with a dash of smoked cinnamon.</p>
+              <div class="menu-bottom">
+                <span class="price">₹230</span>
+                <button class="add-btn"><i data-lucide="plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item glass" data-tilt data-tilt-max="10">
+            <div class="menu-img-wrap">
+              <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=600&q=80" alt="Mocha" />
+            </div>
+            <div class="menu-info">
+              <div class="tag-row"><span>Belgian Cacao</span></div>
+              <h4>Dark Belgian Mocha</h4>
+              <p>70% dark Belgian chocolate melted in double espresso and finished with nutmeg dust.</p>
+              <div class="menu-bottom">
+                <span class="price">₹260</span>
+                <button class="add-btn"><i data-lucide="plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item glass" data-tilt data-tilt-max="10">
+            <div class="menu-img-wrap">
+              <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80" alt="Pour Over" />
+            </div>
+            <div class="menu-info">
+              <div class="tag-row"><span>Manual V60</span></div>
+              <h4>Estate V60 Single Origin</h4>
+              <p>Hand-dripped pour-over revealing floral jasmine, lemongrass, and sweet honey undertones.</p>
+              <div class="menu-bottom">
+                <span class="price">₹250</span>
+                <button class="add-btn"><i data-lucide="plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 3: Mountain Teas & Tonics -->
+      <div class="menu-category-panel" id="tea-tonics">
+        <div class="category-hero-card glass" data-tilt data-tilt-max="8">
+          <div class="cat-hero-text">
+            <span class="cat-pill">Herbal & Chai Rituals</span>
+            <h3>Mountain Herbal Infusions</h3>
+            <p>Authentic Himalayan spices, fragrant flower blossoms, and centuries-old slow-cooked Kashmiri tea recipes.</p>
+          </div>
+          <div class="cat-hero-floating-visual">
+            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" class="floating-mug-3d" alt="Kashmiri Chai" />
+          </div>
+        </div>
+
+        <div class="menu-grid">
+          <div class="menu-item glass" data-tilt data-tilt-max="10">
+            <div class="menu-img-wrap">
+              <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="Chai" />
+            </div>
+            <div class="menu-info">
+              <div class="tag-row"><span>Royal Recipe</span></div>
+              <h4>मुसाफ़िर Kashmiri Saffron Kahwa</h4>
+              <p>Whole green tea leaves infused with saffron strands, crushed almonds & whole cinnamon.</p>
+              <div class="menu-bottom">
+                <span class="price">₹210</span>
+                <button class="add-btn"><i data-lucide="plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item glass" data-tilt data-tilt-max="10">
+            <div class="menu-img-wrap">
+              <img src="https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=600&q=80" alt="Matcha" />
+            </div>
+            <div class="menu-info">
+              <div class="tag-row"><span>Ceremonial</span></div>
+              <h4>Ceremonial Kyoto Matcha Latte</h4>
+              <p>Stone-ground Uji matcha whisked with warm almond milk and wild organic wildflower honey.</p>
+              <div class="menu-bottom">
+                <span class="price">₹280</span>
+                <button class="add-btn"><i data-lucide="plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item glass" data-tilt data-tilt-max="10">
+            <div class="menu-img-wrap">
+              <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80" alt="Herbal Infusion" />
+            </div>
+            <div class="menu-info">
+              <div class="tag-row"><span>Relaxing</span></div>
+              <h4>Chamomile Lemongrass Tisane</h4>
+              <p>Calming chamomile buds infused with fresh lemongrass stalks for evening relaxation.</p>
+              <div class="menu-bottom">
+                <span class="price">₹190</span>
+                <button class="add-btn"><i data-lucide="plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category 4: Bakery & Deli Bites -->
+      <div class="menu-category-panel" id="bakery-bites">
+        <div class="category-hero-card glass" data-tilt data-tilt-max="8">
+          <div class="cat-hero-text">
+            <span class="cat-pill">Baked Fresh at Dawn</span>
+            <h3>Artisanal Bakery & Light Deli</h3>
+            <p>Hand-laminated flaky croissants, sourdough sandwiches, and rich desserts baked fresh every morning.</p>
+          </div>
+          <div class="cat-hero-floating-visual">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" class="floating-mug-3d" alt="Pastry Plate" />
+          </div>
+        </div>
+
+        <div class="menu-grid">
+          <div class="menu-item glass" data-tilt data-tilt-max="10">
+            <div class="menu-img-wrap">
+              <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" alt="Croissant" />
+            </div>
+            <div class="menu-info">
+              <div class="tag-row"><span>72-Layer Flaky</span></div>
+              <h4>Almond Butter Brioche Croissant</h4>
+              <p>Twice-baked butter croissant loaded with almond frangipane and toasted sliced almonds.</p>
+              <div class="menu-bottom">
+                <span class="price">₹230</span>
+                <button class="add-btn"><i data-lucide="plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item glass" data-tilt data-tilt-max="10">
+            <div class="menu-img-wrap">
+              <img src="https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80" alt="Sourdough Toast" />
+            </div>
+            <div class="menu-info">
+              <div class="tag-row"><span>Sourdough Deli</span></div>
+              <h4>Sundried Pesto Sourdough Toast</h4>
+              <p>Toasted country sourdough topped with basil walnut pesto, cherry tomatoes, and feta.</p>
+              <div class="menu-bottom">
+                <span class="price">₹270</span>
+                <button class="add-btn"><i data-lucide="plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item glass" data-tilt data-tilt-max="10">
+            <div class="menu-img-wrap">
+              <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Chocolate Cheesecake" />
+            </div>
+            <div class="menu-info">
+              <div class="tag-row"><span>Dessert</span></div>
+              <h4>Espresso Basque Cheesecake</h4>
+              <p>Burnt caramelized exterior with an ultra-creamy, coffee-infused molten center.</p>
+              <div class="menu-bottom">
+                <span class="price">₹290</span>
+                <button class="add-btn"><i data-lucide="plus"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Atmosphere / Ambience Section -->
+  <section id="ambience" class="section ambience-section">
+    <div class="container">
+      <div class="section-heading text-center">
+        <span class="eyebrow">The Sanctuary</span>
+        <h2>A Living Space at <span class="gradient-text">मुसाफ़िर Cafe</span></h2>
+        <p>A haven built out of recycled timber, hand-annotated travel diaries, and the scent of freshly pressed coffee beans.</p>
+      </div>
+
+      <div class="ambience-grid">
+        <div class="ambience-card glass" data-tilt data-tilt-max="8">
+          <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Books and Coffee" />
+          </div>
+          <div class="box-content">
+            <div class="icon-circle"><i data-lucide="book-marked"></i></div>
+            <h3>The Open Library</h3>
+            <p>Grab a book from our shelves, write a postcard, or leave your story for the next wanderer.</p>
+          </div>
+        </div>
+
+        <div class="ambience-card glass" data-tilt data-tilt-max="8">
+          <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80" alt="Coffee Brewing" />
+          </div>
+          <div class="box-content">
+            <div class="icon-circle"><i data-lucide="flame"></i></div>
+            <h3>Slow Extraction Chemistry</h3>
+            <p>Syphon, French Press, and V60 pour-overs prepared with precision water temperatures and curated beans.</p>
+          </div>
+        </div>
+
+        <div class="ambience-card glass" data-tilt data-tilt-max="8">
+          <div class="img-box">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80" alt="Warm Cozy Cafe Night" />
+          </div>
+          <div class="box-content">
+            <div class="icon-circle"><i data-lucide="guitar"></i></div>
+            <h3>Acoustic Friday Nights</h3>
+            <p>Unplugged guitar jam sessions, open mics for poets, and soulful conversations under warm filament lights.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Section -->
+  <section id="reserve" class="section reservation-section">
+    <div class="container">
+      <div class="reservation-card glass" data-tilt data-tilt-max="5">
+        <span class="eyebrow">Lock Your Spot</span>
+        <h2>Reserve A Peaceful Corner</h2>
+        <p>Planning a work session, a romantic evening, or a reading session?</p>
+
+        <form class="booking-form" onsubmit="event.preventDefault(); alert('Corner Reserved at मुसाफ़िर Cafe! A fresh cup is waiting for you.');">
+          <div class="form-grid">
+            <div class="input-field glass">
+              <i data-lucide="user"></i>
+              <input type="text" placeholder="Your Name" required />
+            </div>
+            <div class="input-field glass">
+              <i data-lucide="users"></i>
+              <input type="number" placeholder="No. of Wanderers" min="1" max="10" required />
+            </div>
+            <div class="input-field glass">
+              <i data-lucide="calendar"></i>
+              <input type="date" required />
+            </div>
+            <div class="input-field glass">
+              <i data-lucide="clock"></i>
+              <input type="time" required />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-glow form-submit">
+            <span>Confirm Booking at मुसाफ़िर Cafe</span>
+            <i data-lucide="check"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer glass">
+    <div class="container footer-content">
+      <div class="footer-main">
+        <h3>मुसाफ़िर <span class="english-cafe">Cafe</span></h3>
+        <p>A sanctuary dedicated to restless souls, coffee aficionados, and eternal wanderers.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Find Us</h4>
+        <p><i data-lucide="map-pin"></i> Lane 4, Bohemian Quarter, Heritage Street</p>
+        <p><i data-lucide="clock"></i> 8:00 AM – 11:30 PM (All 7 Days)</p>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      <p>© 2026 मुसाफ़िर Cafe. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
