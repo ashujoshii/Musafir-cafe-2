@@ -1202,6 +1202,115 @@ body {
   font-size: 0.95rem;
 }
 
+.reviews-section {
+  padding-top: 2rem;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 22px;
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--border-hover);
+}
+
+.review-card-featured {
+  transform: translateY(-1rem);
+  border-color: rgba(230, 167, 86, 0.34);
+}
+
+.review-card-featured:hover {
+  transform: translateY(calc(-1rem - 7px));
+}
+
+.review-photo-slot {
+  display: flex;
+  min-height: 175px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: var(--accent-gold);
+  background: linear-gradient(135deg, rgba(230, 167, 86, 0.14), rgba(255, 255, 255, 0.035));
+  border-bottom: 1px dashed rgba(230, 167, 86, 0.3);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.review-photo-slot svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  opacity: 0.8;
+}
+
+.review-card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.35rem;
+}
+
+.review-stars {
+  margin-bottom: 0.75rem;
+  color: var(--accent-warm);
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+}
+
+.review-card blockquote {
+  flex: 1;
+  color: #f2eee7;
+  font-family: var(--font-subserif);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.author-mark {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  color: #15100b;
+  background: var(--accent-warm);
+  border-radius: 50%;
+  font-weight: 800;
+}
+
+.review-author strong,
+.review-author small {
+  display: block;
+}
+
+.review-author strong {
+  color: var(--accent-warm);
+  font-size: 0.75rem;
+}
+
+.review-author small {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+}
+
 .location-layout {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -1711,6 +1820,15 @@ body {
   .community-wall {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.85rem;
+  }
+
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card-featured,
+  .review-card-featured:hover {
+    transform: none;
   }
 
   .community-photo:nth-child(even) {
