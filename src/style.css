@@ -41,6 +41,52 @@ body {
   font-family: var(--font-sans);
   overflow-x: hidden;
   line-height: 1.6;
+  transition: background-color 0.8s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body,
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    cursor: none;
+  }
+}
+
+.custom-cursor,
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100001;
+}
+
+.custom-cursor {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-warm);
+  box-shadow: 0 0 10px var(--accent-warm), 0 0 20px var(--accent-gold);
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.cursor-trail {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(246, 203, 133, 0.45);
+  z-index: 100000;
+  transition: transform 0.18s ease-out, width 0.2s ease, height 0.2s ease;
+}
+
+.cursor-hover .custom-cursor { transform: translate(-50%, -50%) scale(1.5); }
+.cursor-hover .cursor-trail {
+  transform: translate(-50%, -50%) scale(1.8);
+  border-color: rgba(246, 203, 133, 0.85);
+  background: rgba(230, 167, 86, 0.08);
 }
 
 /* ==========================================================================
@@ -938,6 +984,42 @@ body {
   gap: 2rem;
 }
 
+.ambience-selector-section { padding-top: 5rem; }
+.ambience-selector-section .section-heading { margin-bottom: 1.5rem; }
+.ambience-selector-section h3 { font-family: var(--font-serif); font-size: 1.7rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.corner-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.corner-card {
+  min-height: 176px;
+  padding: 1.4rem;
+  text-align: left;
+  color: var(--text-pure);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+.corner-card:hover, .corner-card.active { transform: translateY(-5px); border-color: var(--accent-gold); background: rgba(230, 167, 86, 0.1); }
+.corner-icon { display: inline-flex; align-items: center; justify-content: center; width: 2.6rem; height: 2.6rem; margin-bottom: 1rem; color: var(--accent-warm); background: rgba(230, 167, 86, 0.12); border-radius: 12px; }
+.corner-icon svg { width: 1.2rem; }
+.corner-card h4 { margin-bottom: 0.35rem; color: var(--accent-warm); }
+.corner-card p { color: var(--text-muted); font-size: 0.8rem; }
+
+.ticket-modal[hidden] { display: none; }
+.ticket-modal { position: fixed; inset: 0; z-index: 100000; display: flex; align-items: center; justify-content: center; padding: 1.25rem; background: rgba(0, 0, 0, 0.78); backdrop-filter: blur(10px); }
+.boarding-pass { width: min(100%, 480px); padding: 1.5rem; color: var(--text-pure); background: linear-gradient(135deg, #181512, #241e17); border: 1px solid rgba(230, 167, 86, 0.45); border-radius: 16px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(230, 167, 86, 0.15); }
+.pass-header, .pass-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.pass-header { padding-bottom: 1rem; border-bottom: 1px dashed rgba(230, 167, 86, 0.35); }
+.pass-brand { color: var(--accent-warm); font-family: var(--font-hindi); font-size: 1rem; }
+.pass-badge { color: var(--accent-warm); font-size: 0.65rem; letter-spacing: 0.08em; text-align: right; }
+.pass-body { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; padding: 1.4rem 0; }
+.pass-field label { color: var(--text-muted); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.pass-field p { margin-top: 0.25rem; color: #fef3c7; font-size: 0.9rem; font-weight: 600; }
+.pass-footer { padding-top: 1rem; border-top: 1px dashed rgba(230, 167, 86, 0.35); }
+.barcode { color: rgba(255, 255, 255, 0.4); font-family: monospace; letter-spacing: 0.18em; font-size: 0.7rem; }
+.close-pass-btn { padding: 0.6rem 1rem; color: #08090c; background: var(--accent-warm); border: 0; border-radius: 8px; font: inherit; font-size: 0.8rem; font-weight: 700; cursor: pointer; }
+
 .ambience-card {
   border-radius: 28px;
   padding: 1.2rem;
@@ -1371,6 +1453,24 @@ body {
 }
 
 @media (max-width: 600px) {
+  .corner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .corner-card {
+    min-height: auto;
+  }
+
+  .pass-header,
+  .pass-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pass-badge {
+    text-align: left;
+  }
+
   .navbar {
     top: 0.75rem;
     width: calc(100% - 1.5rem);

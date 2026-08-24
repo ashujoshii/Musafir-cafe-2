@@ -27,12 +27,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const bookingForm = document.getElementById('bookingForm');
   const formStatus = document.getElementById('formStatus');
   const submitButton = bookingForm?.querySelector('button[type="submit"]');
+  const ticketModal = document.getElementById('ticketModal');
+  const closePassButton = document.getElementById('closePassBtn');
+
+  const closeTicket = () => {
+    if (ticketModal) ticketModal.hidden = true;
+  };
+
+  closePassButton?.addEventListener('click', closeTicket);
+  ticketModal?.addEventListener('click', (event) => {
+    if (event.target === ticketModal) closeTicket();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeTicket();
+  });
 
   bookingForm?.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     if (!formStatus || !submitButton) return;
 
+    const bookingData = new FormData(bookingForm);
     submitButton.disabled = true;
     formStatus.textContent = 'Sending your reservation...';
     formStatus.className = 'form-status';
@@ -52,11 +67,45 @@ document.addEventListener('DOMContentLoaded', () => {
       bookingForm.reset();
       formStatus.textContent = 'Reservation sent successfully. We will be in touch soon.';
       formStatus.className = 'form-status success';
+      document.getElementById('passName').textContent = bookingData.get('Guest Name') || 'Traveler';
+      document.getElementById('passGuests').textContent = `${bookingData.get('Wanderers (Guests)') || '2'} Wanderers`;
+      document.getElementById('passDateTime').textContent = `${bookingData.get('Date') || 'Tonight'} · ${bookingData.get('Time') || '8:00 PM'}`;
+      if (ticketModal) ticketModal.hidden = false;
     } catch (error) {
       formStatus.textContent = error.message || 'Something went wrong. Please try again.';
       formStatus.className = 'form-status error';
     } finally {
       submitButton.disabled = false;
     }
+  });
+
+  const cursor = document.querySelector('.custom-cursor');
+  const trail = document.querySelector('.cursor-trail');
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+  if (cursor && trail && finePointer.matches) {
+    window.addEventListener('mousemove', (event) => {
+      cursor.style.left = `${event.clientX}px`;
+      cursor.style.top = `${event.clientY}px`;
+      trail.style.left = `${event.clientX}px`;
+      trail.style.top = `${event.clientY}px`;
+    });
+
+    document.querySelectorAll('a, button, input, .glass').forEach((element) => {
+      element.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      element.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+  }
+
+  const cornerCards = document.querySelectorAll('.corner-card');
+  const audioLabel = document.querySelector('.audio-label strong');
+
+  cornerCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      cornerCards.forEach((item) => item.classList.remove('active'));
+      card.classList.add('active');
+      document.body.style.setProperty('--bg-dark', card.dataset.bg);
+      if (audioLabel) audioLabel.textContent = `${card.dataset.label} Radio`;
+    });
   });
 });

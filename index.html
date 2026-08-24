@@ -20,6 +20,8 @@
 
   <!-- Dynamic Cursor Spotlight Follower -->
   <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="custom-cursor" aria-hidden="true"></div>
+  <div class="cursor-trail" aria-hidden="true"></div>
 
   <!-- Ambient Lighting Gradients -->
   <div class="ambient-glow orb-1"></div>
@@ -494,6 +496,30 @@
           </div>
         </div>
       </div>
+
+      <div class="ambience-selector-section">
+        <div class="section-heading text-center">
+          <span class="eyebrow">Set The Mood</span>
+          <h3>Choose Your Corner</h3>
+        </div>
+        <div class="corner-grid" role="group" aria-label="Choose your cafe ambience">
+          <button class="corner-card active" type="button" data-bg="#0f0c08" data-sound="rain" data-label="Library Nook">
+            <span class="corner-icon" aria-hidden="true"><i data-lucide="book-open"></i></span>
+            <h4>The Library Nook</h4>
+            <p>Soft pages &amp; hazelnut drip</p>
+          </button>
+          <button class="corner-card" type="button" data-bg="#0c111c" data-sound="night" data-label="Stargazer Terrace">
+            <span class="corner-icon" aria-hidden="true"><i data-lucide="moon-star"></i></span>
+            <h4>Stargazer Terrace</h4>
+            <p>Breezy sky &amp; midnight roast</p>
+          </button>
+          <button class="corner-card" type="button" data-bg="#170d0a" data-sound="fireplace" data-label="Bonfire &amp; Strings">
+            <span class="corner-icon" aria-hidden="true"><i data-lucide="flame"></i></span>
+            <h4>Bonfire &amp; Strings</h4>
+            <p>Acoustic chords &amp; mountain brew</p>
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -636,6 +662,25 @@
       <p>© 2026 मुसाफ़िर Cafe. All rights reserved.</p>
     </div>
   </footer>
+
+  <div id="ticketModal" class="ticket-modal" hidden>
+    <div class="boarding-pass" role="dialog" aria-modal="true" aria-labelledby="passTitle">
+      <div class="pass-header">
+        <span class="pass-brand" id="passTitle">मुसाफ़िर Cafe &amp; Sanctuary</span>
+        <span class="pass-badge">VIP Boarding Pass</span>
+      </div>
+      <div class="pass-body">
+        <div class="pass-field"><label>Wanderer</label><p id="passName">-</p></div>
+        <div class="pass-field"><label>Table For</label><p id="passGuests">- Guests</p></div>
+        <div class="pass-field"><label>Date &amp; Time</label><p id="passDateTime">-</p></div>
+        <div class="pass-field"><label>Seat Location</label><p>Stargazer Ridge / Cabin 7</p></div>
+      </div>
+      <div class="pass-footer">
+        <div class="barcode" aria-hidden="true">||| | |||| | ||| |||| | || | |||</div>
+        <button id="closePassBtn" class="close-pass-btn" type="button">Close Pass</button>
+      </div>
+    </div>
+  </div>
 
   <script type="module" src="/src/main.js"></script>
 </body>
