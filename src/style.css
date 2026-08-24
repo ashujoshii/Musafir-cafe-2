@@ -102,9 +102,9 @@ body {
   z-index: 99999 !important;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 999px;
+  gap: 0.65rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 18px;
   cursor: pointer;
   pointer-events: auto !important;
   user-select: none;
@@ -119,7 +119,12 @@ body {
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
-  pointer-events: none;
+  pointer-events: auto;
+  width: 28px;
+  height: 28px;
+  justify-content: center;
+  border: 1px solid var(--border-glass);
+  border-radius: 50%;
   font-family: var(--font-sans);
   font-size: 0.85rem;
   font-weight: 600;
@@ -127,6 +132,29 @@ body {
 
 #soundIconWrapper {
   font-size: 1.1rem;
+}
+
+.spotify-radio-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-warm);
+  text-decoration: none;
+}
+
+.spotify-radio-link:hover .audio-label strong { color: #1ed760; }
+
+.audio-label {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.audio-label small {
+  color: var(--text-muted);
+  font-size: 0.62rem;
+  font-weight: 400;
 }
 
 .audio-disc {
@@ -156,6 +184,7 @@ body {
 
 .volume-control {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.35rem;
   color: var(--text-muted);
@@ -165,7 +194,10 @@ body {
 
 .volume-control input {
   width: 62px;
+  height: 18px;
   accent-color: var(--accent-gold);
+  transform: rotate(-90deg);
+  margin: 1.35rem -1.35rem;
 }
 
 .equalizer-bars {
@@ -1241,10 +1273,46 @@ body {
 }
 
 .creator-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   padding: 1rem 1.2rem;
   border: 1px solid rgba(245, 158, 11, 0.2);
   border-radius: 18px;
   transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.creator-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--accent-gold);
+  border-radius: 50%;
+  color: var(--accent-gold);
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 0 18px var(--accent-glow);
+}
+
+.creator-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.creator-copy small,
+.creator-copy > span {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+}
+
+.creator-copy strong {
+  color: var(--accent-warm);
+  font-size: 0.95rem;
+  letter-spacing: 1px;
 }
 
 .creator-badge:hover {
@@ -1252,9 +1320,7 @@ body {
   box-shadow: 0 0 24px rgba(230, 167, 86, 0.16);
 }
 
-.creator-badge p { color: var(--text-muted); font-size: 0.85rem; }
-.creator-badge p span:last-child { color: var(--accent-warm); font-weight: 700; }
-.creator-links { margin-top: 0.65rem; }
+.creator-links { margin-left: auto; }
 .creator-links a { color: var(--accent-gold); font-size: 0.8rem; text-decoration: none; }
 .creator-links svg { width: 13px; vertical-align: middle; }
 

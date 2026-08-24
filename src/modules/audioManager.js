@@ -23,12 +23,14 @@ export function initAudioEngine() {
   });
 
   widget.addEventListener('click', async (event) => {
-    if (event.target === volumeControl) return;
+    if (event.target === volumeControl || event.target.closest('.spotify-radio-link')) return;
     if (!isPlaying) {
       try {
         await audio.play();
         isPlaying = true;
         if (iconWrapper) iconWrapper.textContent = '🔊';
+        const toggleButton = document.getElementById('soundToggleBtn');
+        if (toggleButton) toggleButton.textContent = '❚❚';
         if (eqBars) eqBars.classList.add('playing');
         console.log('मुसाफ़िर Radio is playing');
       } catch (err) {
@@ -38,6 +40,8 @@ export function initAudioEngine() {
       audio.pause();
       isPlaying = false;
       if (iconWrapper) iconWrapper.textContent = '☕';
+      const toggleButton = document.getElementById('soundToggleBtn');
+      if (toggleButton) toggleButton.textContent = '▶';
       if (eqBars) eqBars.classList.remove('playing');
       console.log('मुसाफ़िर Radio is paused');
     }

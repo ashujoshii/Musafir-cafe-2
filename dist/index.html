@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
   
-  <script type="module" crossorigin src="/Musafir-cafe-2/assets/index-CIunamDl.js"></script>
-  <link rel="stylesheet" crossorigin href="/Musafir-cafe-2/assets/index-YRTvI56G.css">
+  <script type="module" crossorigin src="/Musafir-cafe-2/assets/index-CY4ilClP.js"></script>
+  <link rel="stylesheet" crossorigin href="/Musafir-cafe-2/assets/index-Bm90P4ZD.css">
 </head>
 <body>
 
@@ -26,13 +26,14 @@
   <div class="ambient-glow orb-1"></div>
   <div class="ambient-glow orb-2"></div>
 
-  <!-- Sound Engine HUD Floating Widget -->
+  <!-- Musafir Radio Spotify Card -->
   <div class="audio-widget glass" id="audioWidget">
     <audio id="cafeAudio" src="./cafe-ambience.mp3" loop preload="auto"></audio>
-    <button id="soundToggleBtn" class="sound-toggle-btn" aria-label="Toggle Cozy Cafe Audio">
+    <a class="spotify-radio-link" href="https://open.spotify.com/playlist/2JXK0KRt8pLkmUqIPPmmQQ" target="_blank" rel="noreferrer" aria-label="Open Musafir playlist on Spotify">
       <span id="soundIconWrapper" class="audio-disc">☕</span>
-      <span class="audio-label">मुसाफ़िर Radio</span>
-    </button>
+      <span class="audio-label"><strong>Musafir Radio</strong><small>Play on Spotify</small></span>
+    </a>
+    <button id="soundToggleBtn" class="sound-toggle-btn" aria-label="Toggle cafe ambience">▶</button>
     <div class="equalizer-bars" id="eqBars">
       <span></span><span></span><span></span><span></span>
     </div>
@@ -545,12 +546,10 @@
         <div class="location-card-icon"><i data-lucide="map-pin"></i></div>
         <h3>Sukoon Corner</h3>
         <p class="location-address">Pehla Mod, Sukoon Marg, Thandi Hawaon Ke Paar</p>
-        <p>Bohemian Quarter · Outdoor Stargazing &amp; Indoor Work Lounge</p>
         <div class="location-facts">
           <span><i data-lucide="wifi"></i> 180 Mbps Wi-Fi</span>
           <span><i data-lucide="clock-3"></i> 8 AM – 11:30 PM</span>
         </div>
-        <a class="btn btn-outline location-link" href="https://www.google.com/maps/search/?api=1&query=Pehla+Mod%2C+Sukoon+Marg%2C+Thandi+Hawaon+Ke+Paar" target="_blank" rel="noreferrer">Get Directions <i data-lucide="arrow-up-right"></i></a>
         <div class="spotify-player">
           <div class="spotify-heading">
             <i data-lucide="music-2"></i>
@@ -622,7 +621,12 @@
         <p><i data-lucide="clock"></i> 8:00 AM – 11:30 PM (All 7 Days)</p>
       </div>
       <div class="creator-badge glass">
-        <p>Crafted with <span aria-hidden="true">☕</span> &amp; code by <span>ASHU JOSHI</span></p>
+        <div class="creator-avatar" aria-hidden="true">AJ</div>
+        <div class="creator-copy">
+          <small>Crafted with <span aria-hidden="true">☕</span> &amp; code by</small>
+          <strong>ASHU JOSHI</strong>
+          <span>Designer · Developer · Wanderer</span>
+        </div>
         <div class="creator-links">
           <a href="https://github.com/ashujoshii" target="_blank" rel="noreferrer">GitHub <i data-lucide="arrow-up-right"></i></a>
         </div>
