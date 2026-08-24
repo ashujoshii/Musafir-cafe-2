@@ -13,6 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
   initAudioEngine();
   initScrollManager();
 
+  const openStatus = document.getElementById('openStatus');
+  const closingStatus = document.getElementById('closingStatus');
+  const currentHour = new Date().getHours();
+  const isOpen = currentHour >= 8 && currentHour < 23.5;
+
+  if (openStatus && closingStatus) {
+    openStatus.textContent = isOpen ? 'Open Now' : 'Closed Now';
+    openStatus.style.color = isOpen ? '#9be0a8' : '#f19a8f';
+    closingStatus.textContent = isOpen ? 'Closes at 11:00 PM' : 'Opens at 8:00 AM';
+  }
+
   const bookingForm = document.getElementById('bookingForm');
   const formStatus = document.getElementById('formStatus');
   const submitButton = bookingForm?.querySelector('button[type="submit"]');

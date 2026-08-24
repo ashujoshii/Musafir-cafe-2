@@ -3,6 +3,7 @@ export function initAudioEngine() {
   const audio = document.getElementById('cafeAudio');
   const iconWrapper = document.getElementById('soundIconWrapper');
   const eqBars = document.getElementById('eqBars');
+  const volumeControl = document.getElementById('volumeControl');
 
   if (!widget || !audio) {
     console.error('Audio widget elements missing in DOM.');
@@ -14,8 +15,15 @@ export function initAudioEngine() {
   });
 
   let isPlaying = false;
+  audio.volume = Number(volumeControl?.value || 0.7);
 
-  widget.addEventListener('click', async () => {
+  volumeControl?.addEventListener('input', (event) => {
+    event.stopPropagation();
+    audio.volume = Number(event.target.value);
+  });
+
+  widget.addEventListener('click', async (event) => {
+    if (event.target === volumeControl) return;
     if (!isPlaying) {
       try {
         await audio.play();

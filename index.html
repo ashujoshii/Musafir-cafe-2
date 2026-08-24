@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>मुसाफ़िर Cafe | A Cinematic Haven for Wanderers</title>
+  <link rel="icon" type="image/svg+xml" href="./logo.svg" />
 
   <!-- Google Fonts: Devanagari + Modern Serif & Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,12 +29,16 @@
   <div class="audio-widget glass" id="audioWidget">
     <audio id="cafeAudio" src="./cafe-ambience.mp3" loop preload="auto"></audio>
     <button id="soundToggleBtn" class="sound-toggle-btn" aria-label="Toggle Cozy Cafe Audio">
-      <span id="soundIconWrapper">☕</span>
+      <span id="soundIconWrapper" class="audio-disc">☕</span>
       <span class="audio-label">मुसाफ़िर Radio</span>
     </button>
     <div class="equalizer-bars" id="eqBars">
       <span></span><span></span><span></span><span></span>
     </div>
+    <label class="volume-control" aria-label="Radio volume">
+      <span>Vol</span>
+      <input id="volumeControl" type="range" min="0" max="1" step="0.05" value="0.7" />
+    </label>
   </div>
 
   <!-- Navigation Bar -->
@@ -491,6 +496,76 @@
     </div>
   </section>
 
+  <!-- Wanderer Community Wall -->
+  <section class="section community-section">
+    <div class="container">
+      <div class="section-heading text-center">
+        <span class="eyebrow">Notes From The Road</span>
+        <h2>The Wanderer <span class="gradient-text">Community Wall</span></h2>
+        <p>Little scenes from slow mornings, shared tables, and stories that stay after the last cup.</p>
+      </div>
+      <div class="community-wall">
+        <figure class="community-photo photo-one">
+          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=700&q=80" alt="Coffee on a cafe table" />
+          <figcaption>Slow mornings</figcaption>
+        </figure>
+        <figure class="community-photo photo-two">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80" alt="Freshly brewed coffee" />
+          <figcaption>Find your cup</figcaption>
+        </figure>
+        <figure class="community-photo photo-three">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=700&q=80" alt="Warm cafe interior" />
+          <figcaption>Shared stories</figcaption>
+        </figure>
+        <figure class="community-photo photo-four">
+          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=700&q=80" alt="Coffee brewing in a cafe" />
+          <figcaption>Make room for wonder</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Location & Operations -->
+  <section class="section location-section">
+    <div class="container location-layout">
+      <div class="location-copy">
+        <span class="eyebrow">Come Find Us</span>
+        <h2>Your corner of the <span class="gradient-text">journey</span></h2>
+        <p>Settle into outdoor stargazing or our indoor work lounge. Bring the notebook, we will bring the roast.</p>
+        <div class="operation-status glass">
+          <span class="status-dot"></span>
+          <div>
+            <strong id="openStatus">Open Now</strong>
+            <span id="closingStatus">Closes at 11:00 PM</span>
+          </div>
+        </div>
+      </div>
+      <div class="location-card glass">
+        <div class="location-card-icon"><i data-lucide="map-pin"></i></div>
+        <h3>Sukoon Corner</h3>
+        <p class="location-address">Pehla Mod, Sukoon Marg, Thandi Hawaon Ke Paar</p>
+        <p>Bohemian Quarter · Outdoor Stargazing &amp; Indoor Work Lounge</p>
+        <div class="location-facts">
+          <span><i data-lucide="wifi"></i> 180 Mbps Wi-Fi</span>
+          <span><i data-lucide="clock-3"></i> 8 AM – 11:30 PM</span>
+        </div>
+        <a class="btn btn-outline location-link" href="https://www.google.com/maps/search/?api=1&query=Pehla+Mod%2C+Sukoon+Marg%2C+Thandi+Hawaon+Ke+Paar" target="_blank" rel="noreferrer">Get Directions <i data-lucide="arrow-up-right"></i></a>
+        <div class="spotify-player">
+          <div class="spotify-heading">
+            <i data-lucide="music-2"></i>
+            <span>Musafir Daily Vibe</span>
+          </div>
+          <iframe
+            src="https://open.spotify.com/embed/playlist/2JXK0KRt8pLkmUqIPPmmQQ?utm_source=generator"
+            title="Musafir Daily Vibe Spotify playlist"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Reservation Section -->
   <section id="reserve" class="section reservation-section">
     <div class="container">
@@ -542,8 +617,14 @@
       </div>
       <div class="footer-links">
         <h4>Find Us</h4>
-        <p><i data-lucide="map-pin"></i> Lane 4, Bohemian Quarter, Heritage Street</p>
+        <p><i data-lucide="map-pin"></i> Pehla Mod, Sukoon Marg, Thandi Hawaon Ke Paar</p>
         <p><i data-lucide="clock"></i> 8:00 AM – 11:30 PM (All 7 Days)</p>
+      </div>
+      <div class="creator-badge glass">
+        <p>Crafted with <span aria-hidden="true">☕</span> &amp; code by <span>ASHU JOSHI</span></p>
+        <div class="creator-links">
+          <a href="https://github.com/ashujoshii" target="_blank" rel="noreferrer">GitHub <i data-lucide="arrow-up-right"></i></a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom text-center">
