@@ -1027,6 +1027,13 @@ body {
     grid-template-columns: 1fr;
     text-align: center;
   }
+  .hero-content,
+  .hero-visual {
+    width: 100%;
+  }
+  .hero-visual {
+    max-width: 680px;
+  }
   .hindi-hero-text {
     font-size: 3.2rem;
   }
@@ -1056,5 +1063,285 @@ body {
   }
   .nav-links {
     display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    top: 0.75rem;
+    width: calc(100% - 1.5rem);
+    padding: 0.65rem 0.85rem;
+  }
+
+  .nav-container {
+    gap: 0.65rem;
+  }
+
+  .brand-logo {
+    min-width: 0;
+    gap: 0.45rem;
+  }
+
+  .logo-icon {
+    font-size: 1.4rem;
+  }
+
+  .hindi-logo-title {
+    font-size: 1.15rem;
+  }
+
+  .english-cafe {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+
+  .sub-name {
+    display: none;
+  }
+
+  .btn-reserve {
+    flex-shrink: 0;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.68rem;
+    white-space: nowrap;
+  }
+
+  .audio-widget {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    padding: 0.55rem 0.8rem;
+  }
+
+  .audio-label {
+    display: none;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding: 8rem 1rem 4rem;
+    gap: 2.5rem;
+  }
+
+  .badge-pill {
+    max-width: 100%;
+    justify-content: center;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.68rem;
+    line-height: 1.4;
+    margin-bottom: 1.25rem;
+  }
+
+  .hindi-hero-text {
+    font-size: 2.7rem;
+  }
+
+  .english-hero-text {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .hero-tagline {
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions .btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem 0.5rem;
+    border-radius: 16px;
+  }
+
+  .stat-sep {
+    display: none;
+  }
+
+  .stat-box h3 {
+    font-size: 1.05rem;
+  }
+
+  .stat-box p {
+    font-size: 0.62rem;
+    line-height: 1.35;
+  }
+
+  .glass-feature-card {
+    padding: 0.75rem;
+    border-radius: 24px;
+  }
+
+  .card-img-wrap {
+    height: min(75vw, 320px);
+    border-radius: 18px;
+  }
+
+  .card-details {
+    padding: 1rem 0.25rem 0.25rem;
+  }
+
+  .card-details h3 {
+    font-size: 1.1rem;
+  }
+
+  .floating-badge {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: fit-content;
+    max-width: calc(100% - 1rem);
+    margin: -0.5rem auto 0;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.78rem;
+    transform: none;
+  }
+
+  .floating-badge span {
+    display: block;
+    overflow-wrap: anywhere;
+  }
+
+  .section,
+  .about-section {
+    padding: 5rem 1rem;
+  }
+
+  .section-heading h2,
+  .section-heading-left {
+    font-size: 2rem;
+  }
+
+  .section-heading p {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-img-box {
+    padding: 0.75rem;
+    border-radius: 24px;
+  }
+
+  .about-img-box img {
+    height: 320px;
+    border-radius: 18px;
+  }
+
+  .floating-quote {
+    right: 0.5rem;
+    bottom: -1rem;
+    max-width: calc(100% - 1rem);
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .about-pillars {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: left;
+  }
+
+  .pillar-item {
+    padding: 1rem;
+  }
+
+  .menu-tabs-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .menu-tabs {
+    width: 100%;
+    border-radius: 20px;
+    padding: 0.4rem;
+  }
+
+  .tab-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.7rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .category-hero-card {
+    padding: 1.5rem 1rem;
+    border-radius: 24px;
+    margin-bottom: 2rem;
+  }
+
+  .cat-hero-text h3 {
+    font-size: 1.65rem;
+  }
+
+  .cat-hero-text p {
+    font-size: 0.9rem;
+  }
+
+  .floating-mug-3d {
+    width: min(58vw, 190px);
+    height: min(58vw, 190px);
+  }
+
+  .menu-grid {
+    gap: 1rem;
+  }
+
+  .menu-item,
+  .ambience-card {
+    border-radius: 22px;
+    padding: 0.85rem;
+  }
+
+  .menu-img-wrap,
+  .img-box {
+    height: 190px;
+    border-radius: 16px;
+  }
+
+  .menu-info p {
+    height: auto;
+    min-height: 0;
+  }
+
+  .reservation-card {
+    padding: 2.5rem 1rem;
+    border-radius: 26px;
+  }
+
+  .reservation-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .input-field {
+    padding: 0.85rem 1rem;
+  }
+
+  .footer {
+    padding: 3.5rem 1rem 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .footer-content {
+    gap: 2rem;
+  }
+
+  .footer-links p {
+    align-items: flex-start;
   }
 }
