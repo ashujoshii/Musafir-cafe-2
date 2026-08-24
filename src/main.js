@@ -84,12 +84,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 
   if (cursor && trail && finePointer.matches) {
+    let pointerX = -100;
+    let pointerY = -100;
+    let trailX = pointerX;
+    let trailY = pointerY;
+
     window.addEventListener('mousemove', (event) => {
-      cursor.style.left = `${event.clientX}px`;
-      cursor.style.top = `${event.clientY}px`;
-      trail.style.left = `${event.clientX}px`;
-      trail.style.top = `${event.clientY}px`;
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+      document.body.classList.add('cursor-visible');
     });
+
+    window.addEventListener('mouseleave', () => document.body.classList.remove('cursor-visible'));
+
+    const followPointer = () => {
+      trailX += (pointerX - trailX) * 0.13;
+      trailY += (pointerY - trailY) * 0.13;
+      cursor.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0) translate(-50%, -50%)`;
+      trail.style.transform = `translate3d(${trailX}px, ${trailY}px, 0) translate(-50%, -50%)`;
+      requestAnimationFrame(followPointer);
+    };
+
+    followPointer();
 
     document.querySelectorAll('a, button, input, .glass').forEach((element) => {
       element.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
@@ -106,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.classList.add('active');
       document.body.style.setProperty('--bg-dark', card.dataset.bg);
       if (audioLabel) audioLabel.textContent = `${card.dataset.label} Radio`;
+      window.musafirAudio?.playMood(card.dataset.sound);
     });
   });
 });
