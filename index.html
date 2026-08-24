@@ -26,7 +26,7 @@
 
   <!-- Sound Engine HUD Floating Widget -->
   <div class="audio-widget glass" id="audioWidget">
-    <audio id="cafeAudio" src="/cafe-ambience.mp3" loop preload="auto"></audio>
+    <audio id="cafeAudio" src="./cafe-ambience.mp3" loop preload="auto"></audio>
     <button id="soundToggleBtn" class="sound-toggle-btn" aria-label="Toggle Cozy Cafe Audio">
       <span id="soundIconWrapper">☕</span>
       <span class="audio-label">मुसाफ़िर Radio</span>
@@ -503,23 +503,28 @@
         <h2>Reserve A Peaceful Corner</h2>
         <p>Planning a work session, a romantic evening, or a reading session?</p>
 
-        <form class="booking-form" onsubmit="event.preventDefault(); alert('Corner Reserved at मुसाफ़िर Cafe! A fresh cup is waiting for you.');">
+        <form class="booking-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="cd1dfa47-d7c9-42a1-8c23-1bcd6c83f406" />
           <div class="form-grid">
             <div class="input-field glass">
               <i data-lucide="user"></i>
-              <input type="text" placeholder="Your Name" required />
+              <input type="text" name="Guest Name" placeholder="Your Name" required />
             </div>
             <div class="input-field glass">
               <i data-lucide="users"></i>
-              <input type="number" placeholder="No. of Wanderers" min="1" max="10" required />
+              <input type="number" name="Wanderers (Guests)" placeholder="No. of Wanderers" min="1" max="10" required />
             </div>
             <div class="input-field glass">
               <i data-lucide="calendar"></i>
-              <input type="date" required />
+              <input type="date" name="Date" required />
             </div>
             <div class="input-field glass">
               <i data-lucide="clock"></i>
-              <input type="time" required />
+              <input type="time" name="Time" required />
+            </div>
+            <div class="input-field glass">
+              <i data-lucide="phone"></i>
+              <input type="tel" name="Contact Number" placeholder="Phone Number" required />
             </div>
           </div>
           <button type="submit" class="btn btn-glow form-submit">

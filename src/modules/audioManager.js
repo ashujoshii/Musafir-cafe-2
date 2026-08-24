@@ -9,6 +9,10 @@ export function initAudioEngine() {
     return;
   }
 
+  audio.addEventListener('error', () => {
+    console.error('Musafir Radio could not load the audio file.', audio.error);
+  });
+
   let isPlaying = false;
 
   widget.addEventListener('click', async () => {
