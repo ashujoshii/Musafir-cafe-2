@@ -44,56 +44,6 @@ body {
   transition: background-color 0.8s ease;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  body,
-  a,
-  button,
-  input,
-  select,
-  textarea {
-    cursor: none;
-  }
-}
-
-.custom-cursor,
-.cursor-trail {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  border-radius: 50%;
-  opacity: 0;
-  z-index: 100001;
-  will-change: transform, opacity;
-  transition: opacity 0.25s ease;
-}
-
-.cursor-visible .custom-cursor,
-.cursor-visible .cursor-trail {
-  opacity: 1;
-}
-
-.custom-cursor {
-  width: 7px;
-  height: 7px;
-  background: var(--accent-warm);
-  box-shadow: 0 0 10px var(--accent-warm), 0 0 20px var(--accent-gold);
-}
-
-.cursor-trail {
-  width: 34px;
-  height: 34px;
-  border: 1px solid rgba(246, 203, 133, 0.55);
-  z-index: 100000;
-}
-
-.cursor-hover .custom-cursor { scale: 1.45; }
-.cursor-hover .cursor-trail {
-  scale: 1.55;
-  border-color: rgba(246, 203, 133, 0.85);
-  background: rgba(230, 167, 86, 0.08);
-}
-
 /* ==========================================================================
    3D Canvas & Ambient Layers
    ========================================================================== */

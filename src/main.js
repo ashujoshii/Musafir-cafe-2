@@ -79,40 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  const cursor = document.querySelector('.custom-cursor');
-  const trail = document.querySelector('.cursor-trail');
-  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-
-  if (cursor && trail && finePointer.matches) {
-    let pointerX = -100;
-    let pointerY = -100;
-    let trailX = pointerX;
-    let trailY = pointerY;
-
-    window.addEventListener('mousemove', (event) => {
-      pointerX = event.clientX;
-      pointerY = event.clientY;
-      document.body.classList.add('cursor-visible');
-    });
-
-    window.addEventListener('mouseleave', () => document.body.classList.remove('cursor-visible'));
-
-    const followPointer = () => {
-      trailX += (pointerX - trailX) * 0.13;
-      trailY += (pointerY - trailY) * 0.13;
-      cursor.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0) translate(-50%, -50%)`;
-      trail.style.transform = `translate3d(${trailX}px, ${trailY}px, 0) translate(-50%, -50%)`;
-      requestAnimationFrame(followPointer);
-    };
-
-    followPointer();
-
-    document.querySelectorAll('a, button, input, .glass').forEach((element) => {
-      element.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-      element.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-    });
-  }
-
   const cornerCards = document.querySelectorAll('.corner-card');
   const audioLabel = document.querySelector('.audio-label strong');
 

@@ -23,31 +23,71 @@ export function initAudioEngine() {
   audio.volume = Number(volumeControl?.value || 0.7);
 
   const moodPatterns = {
-    rain: { notes: [261.63, 329.63, 392, 329.63], tempo: 900, type: 'sine' },
-    night: { notes: [196, 246.94, 293.66, 369.99, 293.66], tempo: 1100, type: 'triangle' },
-    fireplace: { notes: [220, 261.63, 293.66, 329.63, 293.66, 261.63], tempo: 700, type: 'sawtooth' },
+    rain: {
+      notes: [293.66, 349.23, 440, 523.25, 440, 349.23, 293.66, 261.63],
+      chords: [146.83, 220, 293.66, 349.23],
+      bass: 146.83,
+      tempo: 520,
+      type: 'sine',
+    },
+    night: {
+      notes: [261.63, 329.63, 392, 493.88, 392, 329.63, 293.66, 329.63],
+      chords: [130.81, 196, 261.63, 329.63],
+      bass: 130.81,
+      tempo: 680,
+      type: 'triangle',
+    },
+    fireplace: {
+      notes: [220, 261.63, 329.63, 392, 329.63, 293.66, 261.63, 220],
+      chords: [110, 164.81, 220, 261.63],
+      bass: 110,
+      tempo: 430,
+      type: 'triangle',
+    },
   };
 
   const ensureMoodAudio = () => {
     if (moodContext) return;
     moodContext = new AudioContext();
     moodMaster = moodContext.createGain();
-    moodMaster.gain.value = Number(volumeControl?.value || 0.7) * 0.16;
+    moodMaster.gain.value = Number(volumeControl?.value || 0.7) * 0.12;
     moodMaster.connect(moodContext.destination);
   };
 
-  const playMoodNote = (pattern, index) => {
+  const playTone = (frequency, type, duration, volume, detune = 0) => {
     const oscillator = moodContext.createOscillator();
     const noteGain = moodContext.createGain();
     const now = moodContext.currentTime;
-    oscillator.type = pattern.type;
-    oscillator.frequency.value = pattern.notes[index % pattern.notes.length];
+    oscillator.type = type;
+    oscillator.frequency.value = frequency;
+    oscillator.detune.value = detune;
     noteGain.gain.setValueAtTime(0.001, now);
-    noteGain.gain.exponentialRampToValueAtTime(0.18, now + 0.04);
-    noteGain.gain.exponentialRampToValueAtTime(0.001, now + 0.72);
+    noteGain.gain.exponentialRampToValueAtTime(volume, now + 0.035);
+    noteGain.gain.exponentialRampToValueAtTime(0.001, now + duration);
     oscillator.connect(noteGain).connect(moodMaster);
     oscillator.start(now);
-    oscillator.stop(now + 0.75);
+    oscillator.stop(now + duration + 0.02);
+  };
+
+  const playMoodStep = (pattern, index) => {
+    const note = pattern.notes[index % pattern.notes.length];
+    playTone(note, pattern.type, 0.42, 0.24);
+    playTone(note * 2, 'sine', 0.28, 0.035, 4);
+
+    if (index % 4 === 0) {
+      playTone(pattern.bass, 'sine', 0.85, 0.16);
+      pattern.chords.forEach((chord, chordIndex) => {
+        playTone(chord, 'sine', 1.5, chordIndex === 0 ? 0.055 : 0.035, chordIndex % 2 ? -3 : 3);
+      });
+    }
+
+    if (currentMood === 'rain' && index % 2 === 1) {
+      playTone(note * 4, 'sine', 0.08, 0.018);
+    }
+
+    if (currentMood === 'fireplace' && index % 2 === 0) {
+      playTone(pattern.bass * 2, 'triangle', 0.12, 0.06);
+    }
   };
 
   const stopMood = () => {
@@ -67,8 +107,8 @@ export function initAudioEngine() {
     currentMood = mood;
     moodPlaying = true;
     let noteIndex = 0;
-    playMoodNote(pattern, noteIndex);
-    moodTimer = setInterval(() => playMoodNote(pattern, ++noteIndex), pattern.tempo);
+    playMoodStep(pattern, noteIndex);
+    moodTimer = setInterval(() => playMoodStep(pattern, ++noteIndex), pattern.tempo);
     if (iconWrapper) iconWrapper.textContent = '♫';
     if (toggleButton) toggleButton.textContent = '❚❚';
     eqBars?.classList.add('playing');
@@ -84,7 +124,7 @@ export function initAudioEngine() {
   volumeControl?.addEventListener('input', (event) => {
     event.stopPropagation();
     audio.volume = Number(event.target.value);
-    if (moodMaster) moodMaster.gain.value = Number(event.target.value) * 0.16;
+    if (moodMaster) moodMaster.gain.value = Number(event.target.value) * 0.12;
   });
 
   widget.addEventListener('click', async (event) => {
